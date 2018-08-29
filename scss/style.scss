@@ -21,7 +21,6 @@ button {
 
 .container {
   height: 100%;
-  display: flex;
   justify-content: center;
   align-items: center;
   perspective: 200px;
@@ -145,4 +144,98 @@ $blue: #ADD8E6;
 .button3:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+/* toggle */
+
+@keyframes trigger-on {
+    0%   {background-color: red; height: 30px; width: 30px; }
+    25%  {background-color: red; height: 20px; width: 20px;}
+    50%  {background-color: green; height: 15px; width: 15px;}
+    75% {background-color: green; height: 20px; width: 20px;}
+    100% {background-color: green; height: 30px; width: 30px;}
+}
+@keyframes trigger-off {
+    0%   {background-color: green; height: 30px; width: 30px;}
+    25%  {background-color: green; height: 20px; width: 20px;}
+    50%  {background-color: red; height: 15px; width: 15px;}
+    75% {background-color: red; height: 20px; width: 20px;}
+    100% {background-color: red; height: 30px; width: 30px; }
+}
+
+.toggle {
+    margin: 35px 0 20px 20px;
+    position: relative;
+    display: inline-block;
+    width: 158px;
+    height: 48px;
+}
+
+.toggle input[type="checkbox"] {
+    display: none
+}
+
+.toggle .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 5px;
+    height: 60px;
+    background-color: black;
+    border: 1px solid #CCCCCC;
+    -webkit-transition: all .4s;
+    transition: all .4s;
+    font-size: 0.8rem;
+    font-weight: 400
+}
+
+.toggle .slider .trigger {
+    position: relative;
+    content: "";
+    height: 40px;
+    width: 40px;
+    top: 50%;
+    -webkit-transform: translate(4px, -50%);
+    -ms-transform: translate(4px, -50%);
+    transform: translate(4px, -50%);
+    background-color: #CCCCCC;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.toggle input:checked + .slider .trigger {
+  -webkit-animation-name: trigger-off;  
+  -webkit-animation-duration: .4s;  
+  animation-name: trigger-off;
+  animation-duration: .4s;
+  background-color: red;
+}
+
+.toggle input + .slider .trigger {
+  background-color: green;
+  -webkit-animation-name: trigger-on; 
+  -webkit-animation-duration: .4s; 
+  animation-name: trigger-on;
+  animation-duration: .4s;
+}
+
+.toggle input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3
+}
+
+.toggle input:checked+.slider .trigger {
+    -webkit-transform: translate(102px, -50%);
+    -ms-transform: translate(102px, -50%);
+    transform: translate(102px, -50%)
+}
+
+.toggle .slider.round {
+    border-radius: 34px
+}
+
+.toggle .slider.round .trigger {
+    border-radius: 50%
 }
