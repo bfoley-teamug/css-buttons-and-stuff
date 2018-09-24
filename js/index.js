@@ -1,16 +1,48 @@
-var button = document.querySelector('.button');
+var $header = $('header'),
+    $headerHeight = $header.height(),
+    $title = $('.title');
 
-button.addEventListener('mousemove', function (e) {
-  var sensitivity = 30;var
-  offsetX = e.offsetX,offsetY = e.offsetY;var _e$target =
-  e.target,offsetHeight = _e$target.offsetHeight,offsetWidth = _e$target.offsetWidth;
+var navScroll = {
 
-  var y = -(offsetX / offsetWidth - 0.5) * sensitivity;
-  var x = (offsetY / offsetHeight - 0.5) * sensitivity;
+  init:function(){
+    $(window).on('scroll',function(){
+      navScroll.navDrop();
+    })
+  },
 
-  button.style.transform = 'rotateX(' + x + 'deg) rotateY(' + y + 'deg) rotateZ(0) scale(1.2)';
+  navDrop:function(){
+    var $scrollTop = $(window).scrollTop();
+
+    if($scrollTop > $headerHeight){
+      $header.addClass('scrolled');
+      $title.css('padding-top','70px');
+    }
+    else if($scrollTop == 0) {
+      $header.removeClass('scrolled');
+      $title.css('padding-top','0');
+    }
+
+  }
+}
+
+$(document).ready(function(){
+  navScroll.init();
+})
+
+//button
+const button = document.querySelector('.button');
+
+button.addEventListener('mousemove', (e) => {
+  const sensitivity = 30;
+  const { offsetX, offsetY } = e;
+  const { offsetHeight, offsetWidth} = e.target;
+
+  const y = -((offsetX / offsetWidth) - 0.5) * sensitivity;
+  const x = ((offsetY / offsetHeight) - 0.5) * sensitivity;
+
+  button.style.transform = `rotateX(${x}deg) rotateY(${y}deg) rotateZ(0) scale(1.2)`;
 });
 
-button.addEventListener('mouseout', function () {
+button.addEventListener('mouseout', () => {
   button.style.transform = "scale(1.0) rotateX(0) rotateY(0)";
 });
