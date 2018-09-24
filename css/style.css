@@ -1,232 +1,108 @@
-@import url("https://fonts.googleapis.com/css?family=Lato:900");
-@import url("https://fonts.googleapis.com/css?family=Khula");
-/* button one */
 body {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
+    width: 100%;
+    height: 1000px;
+    background-color: #fff;
   justify-content: center;
   align-items: center;
-  font-size: 16px;
-}
+    font-family: 'Indie Flower', cursive;
+    font-size: 24px;
+ }
 
-button {
-  display: block;
-  margin: 28px;
-}
-
-.container {
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  perspective: 200px;
-}
-
-.button {
-  width: 150px;
-  padding: 10px 30px;
-  font-weight: 900;
-  font-family: Lato, sans-serif;
-  background: transparent;
-  border: none;
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0px 0px 0px 4px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: inset 0px 0px 0px 4px rgba(0, 0, 0, 0.3);
-  box-shadow: inset 0px 0px 0px 4px rgba(0, 0, 0, 0.3);
-  color: lightgrey;
-  transition-timing-function: ease-in-out;
-  transition: 0.3s all;
-  transform: scale(1) rotateX(0) rotateY(0);
-  transform-style: preserve-3d;
-  will-change: transform box-shadow;
-}
-.button:hover {
-  color: #fff;
-  -webkit-box-shadow: inset 0px 0px 0px 20px forestgreen, 0px 10px 35px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: inset 0px 0px 0px 20px forestgreen, 0px 10px 35px rgba(0, 0, 0, 0.4);
-  box-shadow: inset 0px 0px 0px 20px forestgreen, 0px 10px 35px rgba(0, 0, 0, 0.4);
-}
-
-/* button two */
-.button2 {
-  font-family: 'Khula', sans-serif;
-  text-align: center;
-  font-size: 18px;
-  width: 150px;
-  height: 80px;
-  border-radius: 15px;
-  background-color: white;
-  border: 4px solid;
-  box-shadow: 4px 4px 9px -3px #a1a1a1;
-  transition: 0.4s ease;
-}
-.button2:hover {
-  animation: buttonAnimation .8s both infinite;
-  transform: scale(1.2, 1.2);
-  color: green;
-}
-
-@keyframes buttonAnimation {
-  0% {
-    border-top: 6px solid yellow;
-    border-left: 6px solid yellow;
-    border-right: 6px solid yellow;
-    border-bottom: 6px solid yellow;
-  }
-  33% {
-    border-top: 6px solid yellow;
-    border-left: 6px solid #ADD8E6;
-    border-right: 6px solid yellow;
-    border-bottom: 6px solid #ADD8E6;
-  }
-  66% {
-    border-top: 6px solid #ADD8E6;
-    border-left: 6px solid #ADD8E6;
-    border-right: 6px solid yellow;
-    border-bottom: 6px solid yellow;
-  }
-  100% {
-    border-top: 6px solid #ADD8E6;
-    border-left: 6px solid yellow;
-    border-right: 6px solid #ADD8E6;
-    border-bottom: 6px solid yellow;
-  }
-}
-/* button three */
-.button3 {
-  border-radius: 4px;
-  background-color: lightgrey;
-  border: 1px solid purple;
-  color: purple;
-  text-align: center;
-  font-size: 16px;
-  padding: 20px;
-  width: 150px;
-  transition: all 0.5s;
-  cursor: pointer;
-}
-
-.button3 span {
-  cursor: pointer;
-  display: inline-block;
+header {
   position: relative;
-  transition: 0.5s;
+  width: 100%;
+  height: 70px;
+  z-index:10;
+  -webkit-transition: background 100ms ease;
+  &.scrolled {
+    position: fixed;
+    top: -70px;
+    background: #e8e8e8;
+    box-shadow: 0 6px 20px 0 darkgrey;
+    transform: translateY(70px);
+    transition: transform 100ms ease,background 900ms ease;
+    -webkit-transition: transform 500ms ease,background 900ms ease;
+  }
+
+  nav {
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+    text-align: center;
+
+    p {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+  }
+
 }
 
-.button3 span:after {
-  content: '\00bb';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
+.constrain{
+  max-width: 250px;
+  padding: 60px;
+  margin: 0 auto;
 }
 
-.button3:hover span {
-  padding-right: 20px;
-}
 
-.button3:hover span:after {
-  opacity: 1;
-  right: 0;
-}
-
-/* toggle */
 @keyframes trigger-on {
-  0% {
-    background-color: red;
-    height: 30px;
-    width: 30px;
-  }
-  25% {
-    background-color: red;
-    height: 20px;
-    width: 20px;
-  }
-  50% {
-    background-color: green;
-    height: 15px;
-    width: 15px;
-  }
-  75% {
-    background-color: green;
-    height: 20px;
-    width: 20px;
-  }
-  100% {
-    background-color: green;
-    height: 30px;
-    width: 30px;
-  }
+    0%   {background-color: red; height: 30px; width: 30px; }
+    25%  {background-color: red; height: 20px; width: 20px;}
+    50%  {background-color: green; height: 15px; width: 15px;}
+    75% {background-color: green; height: 20px; width: 20px;}
+    100% {background-color: green; height: 30px; width: 30px;}
 }
 @keyframes trigger-off {
-  0% {
-    background-color: green;
-    height: 30px;
-    width: 30px;
-  }
-  25% {
-    background-color: green;
-    height: 20px;
-    width: 20px;
-  }
-  50% {
-    background-color: red;
-    height: 15px;
-    width: 15px;
-  }
-  75% {
-    background-color: red;
-    height: 20px;
-    width: 20px;
-  }
-  100% {
-    background-color: red;
-    height: 30px;
-    width: 30px;
-  }
+    0%   {background-color: green; height: 30px; width: 30px;}
+    25%  {background-color: green; height: 20px; width: 20px;}
+    50%  {background-color: red; height: 15px; width: 15px;}
+    75% {background-color: red; height: 20px; width: 20px;}
+    100% {background-color: red; height: 30px; width: 30px; }
 }
+
 .toggle {
-  margin: 35px 0 20px 20px;
-  position: relative;
-  display: inline-block;
-  width: 158px;
-  height: 48px;
+    margin: 150px 0 20px 20px;
+    position: relative;
+    display: inline-block;
+    width: 158px;
+    height: 48px;
 }
 
 .toggle input[type="checkbox"] {
-  display: none;
+    display: none
 }
 
 .toggle .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 5px;
-  height: 60px;
-  background-color: black;
-  border: 1px solid #CCCCCC;
-  -webkit-transition: all .4s;
-  transition: all .4s;
-  font-size: 0.8rem;
-  font-weight: 400;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 5px;
+    height: 60px;
+    background-color: black;
+    border: 1px solid #CCCCCC;
+    -webkit-transition: all .4s;
+    transition: all .4s;
+    font-size: 0.8rem;
+    font-weight: 400
 }
 
 .toggle .slider .trigger {
-  position: relative;
-  content: "";
-  height: 40px;
-  width: 40px;
-  top: 50%;
-  -webkit-transform: translate(4px, -50%);
-  -ms-transform: translate(4px, -50%);
-  transform: translate(4px, -50%);
-  background-color: #CCCCCC;
-  -webkit-transition: .4s;
-  transition: .4s;
+    position: relative;
+    content: "";
+    height: 40px;
+    width: 40px;
+    top: 50%;
+    -webkit-transform: translate(4px, -50%);
+    -ms-transform: translate(4px, -50%);
+    transform: translate(4px, -50%);
+    background-color: #CCCCCC;
+    -webkit-transition: .4s;
+    transition: .4s;
 }
 
 .toggle input:checked + .slider .trigger {
@@ -245,20 +121,53 @@ button {
   animation-duration: .4s;
 }
 
-.toggle input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+.toggle input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3
 }
 
-.toggle input:checked + .slider .trigger {
-  -webkit-transform: translate(102px, -50%);
-  -ms-transform: translate(102px, -50%);
-  transform: translate(102px, -50%);
+.toggle input:checked+.slider .trigger {
+    -webkit-transform: translate(102px, -50%);
+    -ms-transform: translate(102px, -50%);
+    transform: translate(102px, -50%)
 }
 
 .toggle .slider.round {
-  border-radius: 34px;
+    border-radius: 34px
 }
 
 .toggle .slider.round .trigger {
-  border-radius: 50%;
+    border-radius: 50%
+}
+
+$green: #228b22;
+
+ button {
+  display: block;
+  margin: 28px;
+}
+
+.button {
+  width: 150px;
+  padding: 10px 30px;
+  font-weight: 900;
+  font-family:Lato, sans-serif;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0px 0px 0px 4px rgba(0,0,0, 0.3);
+  -moz-box-shadow: inset 0px 0px 0px 4px rgba(0,0,0, 0.3);
+  box-shadow: inset 0px 0px 0px 4px rgba(0,0,0, 0.3);
+  color: lightgrey;
+  transition-timing-function:ease-in-out;
+  transition:0.3s all;
+  transform:scale(1.0) rotateX(0) rotateY(0);
+  transform-style: preserve-3d;
+  will-change: transform box-shadow;
+
+  &:hover {
+    color: #fff;
+    -webkit-box-shadow: inset 0px 0px 0px 20px rgba($green, 1), 0px 10px 35px rgba(0,0,0,0.4);
+    -moz-box-shadow: inset 0px 0px 0px 20px rgba($green, 1), 0px 10px 35px rgba(0,0,0,0.4);
+    box-shadow: inset 0px 0px 0px 20px rgba($green, 1), 0px 10px 35px rgba(0,0,0,0.4);
+  }
 }
